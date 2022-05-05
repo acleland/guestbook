@@ -1,3 +1,8 @@
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      {console.log('hello')}
+      <h1>My Guestbook</h1>
+    </>
+  );
 }
