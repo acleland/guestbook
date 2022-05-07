@@ -1,11 +1,11 @@
 import { Switch, Route } from 'react-router-dom';
-import Auth from './views/Auth';
+import Auth from './views/Auth/Auth';
 
 export default function App() {
   return (
     <>
       <Switch>
-        <Route path={'/'}>
+        <Route path={'/auth'}>
           <Auth />
         </Route>
         <Route path={'/guestbook'}>
