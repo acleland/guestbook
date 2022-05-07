@@ -9,6 +9,7 @@ export default function Auth({ setCurrentUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [user, setUser] = useState({});
 
   const toggleAuth = () => {
     setIsSignUp(!isSignUp);
@@ -18,15 +19,15 @@ export default function Auth({ setCurrentUser }) {
     e.preventDefault();
     if (isSignUp) {
       try {
-        const resp = await signUpUser(email, password);
-        setCurrentUser(resp.email);
+        const resp = await signUpUser({ email, password });
+        setUser(resp);
       } catch (e) {
         setError(e.message);
       }
     } else {
       try {
-        const resp = await signInUser(email, password);
-        setCurrentUser(resp.email);
+        const resp = await signInUser({ email, password });
+        setUser(resp);
       } catch (e) {
         setError(e.message);
       }
