@@ -2,14 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './Auth.css';
 import { signInUser, signUpUser } from '../../services/user';
+import { useUser } from '../../context/UserContext';
 
-export default function Auth({ setCurrentUser }) {
+export default function Auth() {
   const [isSignUp, setIsSignUp] = useState(true);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [user, setUser] = useState({});
+  const { user, setUser } = useUser();
 
   const toggleAuth = () => {
     setIsSignUp(!isSignUp);

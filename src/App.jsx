@@ -1,4 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
+import { useUser } from './context/UserContext';
 import Auth from './views/Auth/Auth';
 
 export default function App() {
