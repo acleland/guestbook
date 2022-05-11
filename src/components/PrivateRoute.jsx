@@ -1,5 +1,6 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
-export default function PrivateRoute() {
-  return <div>PrivateRoute</div>;
+export default function PrivateRoute({ children, ...rest }) {
+  return <Route></Route>;
 }

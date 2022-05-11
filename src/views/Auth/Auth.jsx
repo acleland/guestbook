@@ -3,14 +3,17 @@ import { useState } from 'react';
 import styles from './Auth.css';
 import { signInUser, signUpUser } from '../../services/user';
 import { useUser } from '../../context/UserContext';
+import { useHistory, useLocation } from 'react-router-dom';
 
 export default function Auth() {
+  const { login } = useUser();
+  const history = useHistory;
+
   const [isSignUp, setIsSignUp] = useState(true);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { user, setUser } = useUser();
 
   const toggleAuth = () => {
     setIsSignUp(!isSignUp);
@@ -18,20 +21,10 @@ export default function Auth() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSignUp) {
-      try {
-        const resp = await signUpUser({ email, password });
-        setUser(resp);
-      } catch (e) {
-        setError(e.message);
-      }
-    } else {
-      try {
-        const resp = await signInUser({ email, password });
-        setUser(resp);
-      } catch (e) {
-        setError(e.message);
-      }
+    try {
+      await login(email, password);
+    } catch {
+      setError(error.message);
     }
   };
 
