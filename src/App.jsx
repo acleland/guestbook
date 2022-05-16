@@ -6,7 +6,7 @@ export default function App() {
   return (
     <>
       <Switch>
-        <Route path={'/auth'}>
+        <Route path={'/login'}>
           <Auth />
         </Route>
         <Route path={'/guestbook'}>
