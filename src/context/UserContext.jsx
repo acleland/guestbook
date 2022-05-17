@@ -29,7 +29,6 @@ export const UserProvider = ({ children }) => {
 
 export const useUser = () => {
   const context = useContext(UserContext);
-  console.log('context', context);
   if (context === undefined) {
     throw new Error('useUser must be used within a User Provider');
   }

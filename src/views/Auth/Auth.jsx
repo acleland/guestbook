@@ -7,9 +7,10 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 export default function Auth() {
   const { login } = useUser();
-  const history = useHistory;
+  const history = useHistory();
+  const location = useLocation();
 
-  const [isSignUp, setIsSignUp] = useState(true);
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,7 +24,9 @@ export default function Auth() {
     e.preventDefault();
     try {
       await login(email, password);
-    } catch {
+      const url = location.state.origin ? location.state.origin.pathname : '/';
+      history.replace(url);
+    } catch (error) {
       setError(error.message);
     }
   };
