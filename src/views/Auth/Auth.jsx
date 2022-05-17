@@ -6,7 +6,7 @@ import { useUser } from '../../context/UserContext';
 import { useHistory, useLocation } from 'react-router-dom';
 
 export default function Auth() {
-  const { login } = useUser();
+  const { login, signup } = useUser();
   const history = useHistory();
   const location = useLocation();
 
@@ -23,7 +23,11 @@ export default function Auth() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await login(email, password);
+      if (isSignUp) {
+        await signup(email, password);
+      } else {
+        await login(email, password);
+      }
       const url = location.state.origin ? location.state.origin.pathname : '/';
       history.replace(url);
     } catch (error) {
