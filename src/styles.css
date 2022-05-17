@@ -20,3 +20,9 @@ nav {
 .login button {
   height: 2em;
 }
+
+.entryForm {
+  display: flex;
+  flex-direction: column;
+  width: 30em;
+}
