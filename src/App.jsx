@@ -2,6 +2,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { useUser } from './context/UserContext';
 import Auth from './views/Auth/Auth';
 import PrivateRoute from './components/PrivateRoute';
+import EntryList from './views/EntryList';
+import Nav from './components/Nav';
 
 export default function App() {
   return (
@@ -10,12 +12,10 @@ export default function App() {
         <Route path={'/login'}>
           <Auth />
         </Route>
-        <PrivateRoute path={'/guestbook'}>
-          <h1>My Guestbook</h1>
+        <PrivateRoute path={'/'}>
+          <Nav />
+          <EntryList />
         </PrivateRoute>
-        <Route path="/">
-          <Redirect to="/guestbook" />
-        </Route>
       </Switch>
     </>
   );
