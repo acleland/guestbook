@@ -34,11 +34,19 @@ export default function EntryList() {
 
   return (
     <section>
+      {error !== '' ? (
+        <p>
+          Uh oh, error. <br />
+          {error}
+        </p>
+      ) : (
+        <></>
+      )}
       <form className={styles.entryForm} onSubmit={handleSubmit}>
         <textarea
           id="guestbookInput"
-          rows="5"
-          cols="33"
+          rows="3"
+          cols="20"
           value={newEntry}
           onChange={(e) => setNewEntry(e.target.value)}
         ></textarea>
