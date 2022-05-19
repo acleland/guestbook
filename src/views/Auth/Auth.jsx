@@ -58,28 +58,28 @@ export default function Auth() {
       </div>
       {error && <p>{`${error}`}</p>}
       <form className={styles['auth']} onSubmit={handleSubmit}>
-        <label htmlFor="email">
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </label>
-        <label htmlFor="password">
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </label>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+
         <button>{isSignUp ? 'Sign up' : 'Sign in'}</button>
       </form>
     </div>

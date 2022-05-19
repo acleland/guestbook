@@ -15,7 +15,6 @@ export default function EntryList() {
     const getEntriesData = async () => {
       try {
         const resp = await getEntries();
-        console.log('resp', resp);
         setEntries(resp);
       } catch (e) {
         setError(e.message);
@@ -26,7 +25,6 @@ export default function EntryList() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('user id', user.id);
     const resp = await createEntry({ userId: user.id, content: newEntry });
     setEntries([resp, ...entries]);
     setNewEntry('');
@@ -43,11 +41,13 @@ export default function EntryList() {
         <></>
       )}
       <form className={styles.entryForm} onSubmit={handleSubmit}>
+        {/* <label htmlFor="guestbookInput">Sign our guestbook</label> */}
         <textarea
           id="guestbookInput"
           rows="3"
           cols="20"
           value={newEntry}
+          placeholder="Sign guestbook here"
           onChange={(e) => setNewEntry(e.target.value)}
         ></textarea>
         <button>Add entry</button>
