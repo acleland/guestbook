@@ -1,5 +1,4 @@
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { useUser } from './context/UserContext';
+import { Switch, Route } from 'react-router-dom';
 import Auth from './views/Auth/Auth';
 import PrivateRoute from './components/PrivateRoute';
 import EntryList from './views/EntryList';
