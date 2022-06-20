@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #38023b;
+  color: white;
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  align-items: center;
+}
+
+.login p {
+  margin-right: 1em;
+}
+
+.login button {
+  height: 2em;
+}
+
+.entryForm {
+  display: flex;
+  flex-direction: column;
+  width: 30em;
+}
